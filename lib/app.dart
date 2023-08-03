@@ -14,7 +14,9 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: _flavorBanner(
-        child: const MyHomePage(title: 'Pipeline Demo',),
+        child: const MyHomePage(
+          title: 'Pipeline Demo Test',
+        ),
         show: kDebugMode,
       ),
     );
@@ -26,19 +28,19 @@ class App extends StatelessWidget {
   }) =>
       show
           ? Banner(
-        child: child,
-        location: BannerLocation.topStart,
-        message: F.name,
-        color: Colors.green.withOpacity(0.6),
-        textStyle: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 12.0,
-            letterSpacing: 1.0),
-        textDirection: TextDirection.ltr,
-      )
+              child: child,
+              location: BannerLocation.topStart,
+              message: F.name,
+              color: Colors.green.withOpacity(0.6),
+              textStyle: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12.0,
+                  letterSpacing: 1.0),
+              textDirection: TextDirection.ltr,
+            )
           : Container(
-        child: child,
-      );
+              child: child,
+            );
 }
 
 class MyHomePage extends StatefulWidget {

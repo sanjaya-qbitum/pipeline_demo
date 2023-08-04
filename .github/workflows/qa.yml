@@ -7,8 +7,24 @@ on:
     branches:
       - qa
 jobs:
+  flutter_test:
+    name: Flutter Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17.x'
+          distribution: 'temurin'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.12'
+      - run: flutter pub get
+      - run: flutter test
+
   build:
-    name: Build Dev
+    name: Build QA
+    needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
